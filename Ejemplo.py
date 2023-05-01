@@ -3,8 +3,8 @@ import PyE_tools as pye
 # Este es un script de cómo usar el módulo de PyE_tools...
 
 # Los datos admitidos son de tipo lista, si lo almacenan Vectores, favor de convertirlo
-datos = [782,1333,515,1475,696,832,1052,700,987,542,1296,704,
-         814,1482,1023,739,643,956,1023,784]
+# datos = [782,1333,515,1475,696,832,1052,700,987,542,1296,704,
+#          814,1482,1023,739,643,956,1023,784]
 
 # Aquí hay otros datos de ejemplos para que puedas probar el algoritmo,
 # recuerda volver a comentar o eliminar la lista anterior, de tal modo que solo
@@ -13,12 +13,14 @@ datos = [782,1333,515,1475,696,832,1052,700,987,542,1296,704,
 # datos = [1.82,1.43,1.51,1.47,1.69,1.88,1.52,1.72,1.78,1.54,1.61,1.66,
 #          1.70,1.81,1.58,1.48,1.53,1.73,1.61,1.56,1.57,1.78]
 
-# datos = [87,66,73,68,48,37,76,85,74,65,93,77,66,83,78,49,57,38,69,78,89,
-#          96,78,97,74,76,68,63,70,81,64,83,67,61,90,77,88,74,85,80,71,73,
-#          61,57,72,80,77,85,80,89]
+datos = [87,66,73,68,48,37,76,85,74,65,93,77,66,83,78,49,57,38,69,78,89,
+         96,78,97,74,76,68,63,70,81,64,83,67,61,90,77,88,74,85,80,71,73,
+         61,57,72,80,77,85,80,89]
 
 # datos = [128,146,136,136,150,140,124,134,142,138,136,120,130,136,132,136,
 #          134,142,132,144]
+
+print(pye.bubbleSort(datos))
 
 # Es importante tratar la lista antes de empezar a usar la librería
 # Usa la función listToDecimal para tratar las variables numéricas de las
