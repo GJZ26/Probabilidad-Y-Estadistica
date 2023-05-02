@@ -94,3 +94,150 @@ print (a-b) # Decimal (0.40)
 
 De esta forma, podemos realizar operaciones con datos con decimales de forma precisa.
 
+## Calculo de Distribución
+### `klassesNumber()`
+Calcula el número de clases de debe tener una tabla de frecuencia según los datos dados
+* Parámetros: 
+  * Data [List]: Lista de datos
+* Retorno [Int]: Número de las clases previstas
+
+Ejemplo:
+```python
+import PyE_tools as pye
+
+data = [1,2,3,4,5,6]
+k = pye.klassesNumber(data)
+
+print(k) # 4
+```
+### `dataRange()`
+Calcula el rango de los datos de una lista dada, esta puede ser ordenada o no.
+
+* Parámetros:
+  * sortedData [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
+  * isSorted [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
+* Retorno [int || float]: Rango de los datos
+
+Ejemplo:
+```python
+import PyE_tools as pye
+
+data = [5,2,1,4,6,3]
+
+# Resultado con los datos desordenado: Erróneo
+pye.dataRange(data) # -2
+
+# Para ordenar y luego realizar el cálculo
+pye.dataRange(data, False) # 5
+
+```
+
+### `dataAmplitudeByList()`
+Calcula la amplitud de los datos dados, a través de una lista.
+
+Nota: Los datos dados están redondeado al número entero mayor más cercano en caso de tener una unidad de variación igual a 1.
+
+* Parámetros:
+  * data [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
+  * isSorted [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
+* Retorno [Decimal]: Amplitud de los datos
+
+Ejemplo:
+```python
+import PyE_tools as pye
+
+data = [5,2,1,4,6,3]
+
+# Resultado con los datos desordenado: Erróneo
+pye.dataAmplitudeByList(data) # 0
+
+# Para ordenar y luego realizar el cálculo
+pye.dataAmplitudeByList(data, False) # 2
+
+```
+
+### `variationUnit()`
+Identifica la unidad de variación de la lista tomando en cuenta el número con mayor decimales de la lista.
+
+* Parámetro [list]: Lista con los datos.
+* Retorno [Decimal]: Unidad de variación.
+
+Ejemplo:
+```python
+import PyE_tools as pye
+
+data1 = [1, 2, 3]
+
+data2 = [1.1, 2.2, 3.4]
+
+data3 = [1.1, 2.12, 3.123]
+
+pye.variationUnit(data1) # 1.0
+pye.variationUnit(data2) # 0.1
+pye.variationUnit(data3) # 0.001
+```
+
+### `calculateFrecuencyByDataList()`
+Esta función calcula la cada clase de la tabla de distribución de frecuencia.
+
+* Parámetro:
+  * sortedData [list]: Lista con los datos ordenados y con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables) y [Algoritmo de ordenamiento](#algoritmo-de-ordenamiento).
+  * classesNumber [int]: Número de clases de la tabla, véase [klassesNumber()](#klassesnumber).
+  * amplitude [Decimal]: Amplitud de los datos, véase [dataAmplitudeByList()](#dataamplitudebylist).
+  * variationUnit [Decimal]: Unidad de variación, véase [variationUnit()](#variationunit).
+* Retorno: Un arreglo bidimensional con los datos de cada clase.
+
+Ejemplo de uso.
+```python
+import PyE_tools as pye
+from decimal import Decimal
+
+data = [1, 2, 3, 4, 5, 6]
+numero_de_clases = 4
+amplitud = Decimal(2)
+unidad_de_variacion = Decimal(1.0)
+
+table_info = pye.calculateFrecuencyByDataList(data, numero_de_clases, amplitud, unidad_de_variacion)
+
+print(table_info) # [[...][...][...]...] longitud = numero_de_clases
+print(table_info[0]) # ['A', 1, Decimal('2.0'), 2, Decimal('1.5'), Decimal('0.5'), Decimal('2.5')]
+```
+Donde:
+```python
+table_info[n] # ['A', 1, Decimal('2.0'), 2, Decimal('1.5'), Decimal('0.5'), Decimal('2.5')] -> info de la clase n
+table_info[n][0] # 'A' -> Letra de la clase
+table_info[n][1] # '1' -> Limite Inferior
+table_info[n][2] # '2.0' -> Límite Superior
+table_info[n][3] # '2' -> Frecuencia
+table_info[n][4] # '1.5' -> Marca de la clase
+table_info[n][5] # '0.5' -> Limite Inferior Exacto
+table_info[n][6] # '2.5' -> Límite Superior Exacto
+```
+
+### `drawTable()`
+Presenta los resultados de la función [`calculateFrecuencyByDataList()`](#calculatefrecuencybydatalist).
+
+Ejemplo de uso:
+```python
+import PyE_tools as pye
+from decimal import Decimal
+
+data = [1, 2, 3, 4, 5, 6]
+numero_de_clases = 4
+amplitud = Decimal(2)
+unidad_de_variacion = Decimal(1.0)
+
+table_info = pye.calculateFrecuencyByDataList(data, numero_de_clases, amplitud, unidad_de_variacion)
+
+drawTable(table_info)
+```
+
+Salida:
+```bash
+Clase   Límite Inf.    Límite Sup.    Frec.     Marca d Clases      Lim Inf Exac      Lim Sup Exac
+---     ---            ---            ---       ---                 ---               ---
+A       1              2.0            2         1.5                 0.5               2.5
+B       3.0            4.0            2         3.5                 2.5               4.5
+C       5.0            6.0            2         5.5                 4.5               6.5
+D       7.0            8.0            0         7.5                 6.5               8.5
+```

@@ -126,7 +126,6 @@ def variationUnit(data: list):
 def calculateFrecuencyByDataList(
     sortedData: list,
     classesNumber: int,
-    dataRange: Decimal,
     amplitude: Decimal,
     variationUnit: Decimal,
 ):

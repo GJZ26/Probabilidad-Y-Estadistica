@@ -71,7 +71,7 @@ uv = pye.variationUnit(datosOrdenados)
 # Retorna un lista bidiomensional
 # Lista primer nivel: [[...],[...],[...],...]
 # Lista segundo nivel: [LetraDeLaClase, LímiteInferior, LimiteSuperior, Frecuencia, Marca de la Clase, Limite Inferior Exacto, Limite Superior Exacto]
-dataTable = pye.calculateFrecuencyByDataList(datosOrdenados,k,r,a,uv)
+dataTable = pye.calculateFrecuencyByDataList(datosOrdenados,k,r,uv)
 
 
 print(f'Número de Clases: {k}')
