@@ -1,18 +1,93 @@
-# PyE Tools
+# Probabilidad Y Estadísitica
 Las herramientas de Probabilidad Y Estadísitica (PyE Tools) son un conjunto de funciones que te ayudan a realizar tablas de distribución de frecuencia de forma fácil y bonita :).
 
 Este proyecto consta de un módulo:
- * **PyE_tools**
+- [Probabilidad Y Estadísitica](#probabilidad-y-estadísitica)
+- [DocxVersion](#docxversion)
+- [PyE\_tools](#pye_tools)
+  - [Algoritmo de ordenamiento](#algoritmo-de-ordenamiento)
+  - [Normalización de tipo de variables](#normalización-de-tipo-de-variables)
+  - [Calculo de Distribución](#calculo-de-distribución)
+    - [`klassesNumber()`](#klassesnumber)
+    - [`dataRange()`](#datarange)
+    - [`dataAmplitudeByList()`](#dataamplitudebylist)
+    - [`variationUnit()`](#variationunit)
+    - [`calculateFrecuencyByDataList()`](#calculatefrecuencybydatalist)
+    - [`drawTable()`](#drawtable)
   
 Y de un aplicativo:
- * **DocxVersion**
+ * [DocxVersion](#docxversion)
 
 En este archivo explicaremos cada uno de ellos:
+
+# DocxVersion
+**DocxVersion** es una aplicación que lee un problema y datos de un archivo `.txt` y genera un documento `.docx` con la solución del problema.
+
+Para usarlo, necesitas descargar este proyecto con el comando:
+
+```bash
+git clone https://github.com/GJZ26/Probabilidad-Y-Estadistica.git
+```
+
+Una vez dentro del proyecto, instalaremos una dependencia necesaria.
+
+```bash
+pip install python-docx
+```
+
+Y listo! tendremos el proyecto listo para ejecutarlo. Dentro de la carpeta del proyecto, se encuentra un documento llamado `problem.txt`, en caso de no encontrarlo, deberás crear un documento con el mismo nombre.
+
+Este texto deberá contener la descripción del problema y los datos.
+
+La descripción del problema debe estar escrita despues de la palabra clave `DE:` separado por un salto en blanco, por ejemplo:
+```text
+DE:
+Esta es una descripción, aparecerá en el documento junto al problema.
+Puede ser multilínea, aunque en el documento no se verá reflejado :)
+```
+
+Aunque es recomendable hacer este paso, no es obligatorio, por lo que puede ser omitido.
+
+Para declarar los datos numérico, lo haremos uno a uno separado por una linea nueva. Estos datos deben ser escritos después de la palabra clave `DA:`, como se muestra a continuación:
+
+```text
+DA:
+52
+16
+71
+12
+28
+51
+13
+```
+
+De tal forma que obtendremos un documento con la siguiente estructura:
+```text
+DE:
+Esta es una descripción, aparecerá en el documento junto al problema.
+Puede ser multilínea, aunque en el documento no se verá reflejado :)
+DA:
+52
+16
+71
+12
+28
+51
+13
+```
+Una vez finalizado este paso, podremos ejecutar el programa con:
+
+```bash
+python DocxVersion.py
+```
+El cuál nos genarará un documento llamado `result.docx`, que tendrá la siguiente información:
+
+![Result.docx](screenshots/resultdocx.png)
 
 # PyE_tools
 Es un módulo que contiene una serie de funciones para calcular tablas de frecuencia a partir de una serie de datos dada.
 
-No es necesario la instalación de ningún otro documento.
+No es necesario la instalación de ninguna otra dependencia.
 
 ## Algoritmo de ordenamiento
 
@@ -114,8 +189,8 @@ print(k) # 4
 Calcula el rango de los datos de una lista dada, esta puede ser ordenada o no.
 
 * Parámetros:
-  * sortedData [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
-  * isSorted [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
+  * **sortedData** [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
+  * **isSorted** [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
 * Retorno [int || float]: Rango de los datos
 
 Ejemplo:
@@ -138,8 +213,8 @@ Calcula la amplitud de los datos dados, a través de una lista.
 Nota: Los datos dados están redondeado al número entero mayor más cercano en caso de tener una unidad de variación igual a 1.
 
 * Parámetros:
-  * data [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
-  * isSorted [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
+  * **data** [list]: Lista de los datos, debe ser una lista con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables).
+  * **isSorted** [bool] [defecto: True]: Define si la lista dada está o no ordenada, en caso de ser True, el método ordenará la lista y hará el cálculo.
 * Retorno [Decimal]: Amplitud de los datos
 
 Ejemplo:
@@ -159,7 +234,8 @@ pye.dataAmplitudeByList(data, False) # 2
 ### `variationUnit()`
 Identifica la unidad de variación de la lista tomando en cuenta el número con mayor decimales de la lista.
 
-* Parámetro [list]: Lista con los datos.
+* Parámetro 
+  * **data** [list]: Lista con los datos.
 * Retorno [Decimal]: Unidad de variación.
 
 Ejemplo:
@@ -181,10 +257,10 @@ pye.variationUnit(data3) # 0.001
 Esta función calcula la cada clase de la tabla de distribución de frecuencia.
 
 * Parámetro:
-  * sortedData [list]: Lista con los datos ordenados y con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables) y [Algoritmo de ordenamiento](#algoritmo-de-ordenamiento).
-  * classesNumber [int]: Número de clases de la tabla, véase [klassesNumber()](#klassesnumber).
-  * amplitude [Decimal]: Amplitud de los datos, véase [dataAmplitudeByList()](#dataamplitudebylist).
-  * variationUnit [Decimal]: Unidad de variación, véase [variationUnit()](#variationunit).
+  * **sortedData** [list]: Lista con los datos ordenados y con las variables tratadas, véase: [Normalización de tipo de variables](#normalización-de-tipo-de-variables) y [Algoritmo de ordenamiento](#algoritmo-de-ordenamiento).
+  * **classesNumber** [int]: Número de clases de la tabla, véase [klassesNumber()](#klassesnumber).
+  * **amplitude** [Decimal]: Amplitud de los datos, véase [dataAmplitudeByList()](#dataamplitudebylist).
+  * **variationUnit** [Decimal]: Unidad de variación, véase [variationUnit()](#variationunit).
 * Retorno: Un arreglo bidimensional con los datos de cada clase.
 
 Ejemplo de uso.
