@@ -101,13 +101,19 @@ def dataAmplitudeByList(data: list, isSorted: bool = True):
     range = (dataRange(data, isSorted))
     classesNumber = (klassesNumber(data))
     if(variationUnit(data) == 1):
-        return Decimal(str(math.ceil(Decimal(str(range/classesNumber)))))
+        if "." in str(range/classesNumber):
+            return Decimal(str(math.ceil(Decimal(str(range/classesNumber)))))
+        else:
+            return Decimal(str(math.ceil(Decimal(str(range/classesNumber)))))+1
     
     return Decimal(str((math.ceil(Decimal(str(range / classesNumber))*10))/10))
 
 
 def dataAmplitudeByVariables(range: int, classesNumber: int):
-    return math.ceil(range / classesNumber)
+    if(math.ceil(range / classesNumber)) is int:
+        return math.ceil(range / classesNumber) + 1
+    else:
+        return math.ceil(range / classesNumber)
 
 
 def variationUnit(data: list):
