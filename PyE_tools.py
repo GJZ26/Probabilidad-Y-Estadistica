@@ -100,13 +100,14 @@ def dataRange(sortedData: list, isSorted: bool = True):
 def dataAmplitudeByList(data: list, isSorted: bool = True):
     range = (dataRange(data, isSorted))
     classesNumber = (klassesNumber(data))
+    uv = variationUnit(data)
     if(variationUnit(data) == 1):
         if "." in str(range/classesNumber):
             return Decimal(str(math.ceil(Decimal(str(range/classesNumber)))))
         else:
             return Decimal(str(math.ceil(Decimal(str(range/classesNumber)))))+1
     
-    return Decimal(str((math.ceil(Decimal(str(range / classesNumber))*10))/10))
+    return Decimal(str((math.ceil(Decimal(str(range / classesNumber))/uv)*uv)))
 
 
 def dataAmplitudeByVariables(range: int, classesNumber: int):
