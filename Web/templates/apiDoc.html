@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API- Documentación</title>
+    <link rel="stylesheet" href="../static/general.css">
+    <link rel="stylesheet" href="../static/doc.css">
+</head>
+
+<body>
+    <h1>API - Documentación</h1>
+    <a href="/">Volver</a>
+    <main class="docontainer">
+        <h1 class="functionName" id="classesnumber">classesNumber</h1>
+        <p>Cuenta el numero de clases resultantes de una serie de datos.</p>
+        <h2 id="endpoint">Endpoint</h2>
+        <pre><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span><span class="hljs-regexp">/api/</span>classesNumber<span class="hljs-regexp">/{typo}</span>
+</code></pre>
+        <h2 id="typo">Typo</h2>
+        <ul>
+            <li>0: Calculado desde un conjunto de datos</li>
+            <li>1: Calculado desde la longitud de los datos</li>
+        </ul>
+        <h2 id="payload-typo-0">Payload - typo 0</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+</code></pre>
+        <h2 id="response-typo-0">Response - typo 0</h2>
+        <pre><code class="lang-json"><span class="hljs-number">4</span>
+</code></pre>
+        <h2 id="payload-typo-1">Payload - typo 1</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json"><span class="hljs-number">6</span>
+</code></pre>
+        <h2 id="response-typo-1">Response - typo 1</h2>
+        <pre><code class="lang-json"><span class="hljs-number">4</span>
+</code></pre>
+        <h1 class="functionName" id="datarange">dataRange</h1>
+        <p>Calcula el rango de los datos de una serie de datos.</p>
+        <h2 id="endpoint">Endpoint</h2>
+        <pre><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span><span class="hljs-regexp">/api/</span>dataRange<span class="hljs-regexp">/{typo}</span>
+</code></pre>
+        <h2 id="typo">Typo</h2>
+        <ul>
+            <li>0: Calcula a través de una serie de datos.</li>
+            <li>1: Calcula a través del dato menor y el dato mayor de una serie de datos.</li>
+        </ul>
+        <h2 id="payload-typo-0">Payload - typo 0</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+</code></pre>
+        <h2 id="response-typo-0">Response - typo 0</h2>
+        <pre><code class="lang-json"><span class="hljs-number">5</span>
+</code></pre>
+        <h2 id="payload-typo-1">Payload - typo 1</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">[<span class="hljs-number">1</span>,<span class="hljs-number">6</span>]
+</code></pre>
+        <h2 id="response-typo-1">Response - typo 1</h2>
+        <pre><code class="lang-json"><span class="hljs-number">5</span>
+</code></pre>
+        <h1 class="functionName" id="dataamplitude">dataAmplitude</h1>
+        <p>Calcula la amplitud de los datos por cada clase de un conjunto de datos.</p>
+        <h2 id="endpoint">Endpoint</h2>
+        <pre><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span><span class="hljs-regexp">/api/</span>dataAmplitude<span class="hljs-regexp">/{typo}</span>
+</code></pre>
+        <h2 id="typo">Typo</h2>
+        <ul>
+            <li>0: Calcula a través de una serie de datos.</li>
+            <li>1: Calcula a través de un rango, numero de clases y unidad de variación.</li>
+        </ul>
+        <h2 id="payload-typo-0">Payload - typo 0</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+</code></pre>
+        <h2 id="response-typo-0">Response - typo 0</h2>
+        <pre><code class="lang-json"><span class="hljs-number">2</span>
+</code></pre>
+        <h2 id="payload-typo-1">Payload - typo 1</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">{
+    <span class="hljs-attr">"range"</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">"classes"</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">"variation"</span>: <span class="hljs-number">1</span>
+}
+</code></pre>
+        <h2 id="response-typo-1">Response - typo 1</h2>
+        <pre><code class="lang-json"><span class="hljs-number">2</span>
+</code></pre>
+        <h1 class="functionName" id="variationunit">variationUnit</h1>
+        <p>Calcula la unidad de variación de un conjunto de datos.</p>
+        <h2 id="endpoint">Endpoint</h2>
+        <pre><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span><span class="hljs-regexp">/api/</span>variationUnit
+</code></pre>
+        <h2 id="payload">Payload</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">[<span class="hljs-number">1.1</span>, <span class="hljs-number">2.12</span>, <span class="hljs-number">3.123</span>, <span class="hljs-number">4.0</span>, <span class="hljs-number">5.1</span>, <span class="hljs-number">6.0</span>]
+</code></pre>
+        <h2 id="response">Response</h2>
+        <pre><code class="lang-json"><span class="hljs-number">3</span>
+</code></pre>
+        <h1 class="functionName" id="frecuency">Frecuency</h1>
+        <p>Calcula la frecuencia de una clase.</p>
+        <h2 id="endpoint">Endpoint</h2>
+        <pre><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span><span class="hljs-regexp">/api/</span>frecuency
+</code></pre>
+        <h2 id="payload">Payload</h2>
+        <p>Datos enviados por Body en JSON.</p>
+        <pre><code class="lang-json">{
+    <span class="hljs-attr">"data"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],
+    <span class="hljs-attr">"limInf"</span>: <span class="hljs-number">0.5</span> ,
+    <span class="hljs-attr">"limSup"</span>: <span class="hljs-number">2.5</span>
+}
+</code></pre>
+        <h2 id="response">Response</h2>
+        <pre><code class="lang-json"><span class="hljs-number">2</span>
+</code></pre>
+    </main>
+    <a href="/">Volver</a>
+</body>
+
+</html>

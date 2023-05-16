@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    color: rgb(215, 215, 215);
+    font-family: monospace;
+    font-weight: normal;
+}
+
+html {
+    background-color: rgb(29, 29, 29);
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 52px;
+    margin: 12px;
+}
+
+.segmentTitle {
+    margin: 40px 53px;
+}
+
+p {
+    font-size: 18px;
+    margin: 2px 63px 40px;
+}
+
+.instruction {
+    margin: -30px 63px 0px;
+}
+
+.optionslist {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 18px;
+    gap: 14px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.chckbx {
+    font-size: 30px;
+    background-color: rgb(49, 49, 49);
+    padding: 3px 8px;
+
+}
+
+.chckbx:hover {
+    background-color: rgb(91, 80, 80);
+}
+
+input[type=checkbox]:checked~label {
+    background-color: rgb(50, 52, 123);
+    font-weight: bold;
+}
+
+input[type=checkbox]:checked~label:hover {
+    background-color: rgb(71, 73, 150);
+}
+
+.singleDataGiven,
+.groupedDataGiven {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}

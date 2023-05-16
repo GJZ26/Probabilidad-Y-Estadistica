@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyE - App | Alpha Version</title>
+    <link rel="stylesheet" href="../static/app.css">
+</head>
+
+<!--
+    Querido usuario curioso...
+
+    Este programa me ha costado muchisimo completarlo para que sea 
+    fácil para ti y para todos a la hora de usarlo.
+
+    Si estás acá para tratar de conocer cómo funciona, puedes ver 
+    el proyecto desde GitHub, para tu mayor comodidad.
+
+    Si estás acá porque te gustaría implementar un sistema como este, 
+    puedes revisar la documentación de la API, o del módulo de Python
+    que realiza todas estas operaciones.
+
+    Pero si estás acá para modificar el HTML, agradecería que dejaras
+    el inspector de documento, y dejaras vivir el programa en paz, ya
+    que está súper delicado, y probablemente logres tu objetivo: Romperlo.
+
+    Agradezco tu interés, y todo lo que conllevo que llegaras hasta acá,
+    sin embargo no solucionaré ningún error que provoque editar este HTML.
+
+    Con mucho aprecio y estima:
+
+        - Quien chucha haya escrito esto
+-->
+
+<body>
+    <div id="whatIknow" class="whatIknow">
+        <h1 class="segmentTitle">¿Qué sabes?</h1>
+        <p class="instruction">Selecciona los datos que ya tengas, en caso que necesites algo en específico.</p>
+        <p>ó ingresa los datos individuales para calcular todo <span id="dataCapture">aquí</span></p>
+        <div class="optionslist">
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="minData" id="minData">
+                <label class="chckbx" for="minData">Dato con el valor más bajo</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="maxData" id="maxData">
+                <label class="chckbx" for="maxData">Dato con el valor más alto</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="dataLen" id="dataLen">
+                <label class="chckbx" for="dataLen">Longitud de los datos</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="classesNumber" id="classesNumber">
+                <label class="chckbx" for="classesNumber">Número de clases</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="dataRange" id="dataRange">
+                <label class="chckbx" for="dataRange">Rango</label>
+            </div>
+
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="dataAmplitude" id="dataAmplitude">
+                <label class="chckbx" for="dataAmplitude">Amplitud</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="variationUnit" id="variationUnit">
+                <label class="chckbx" for="variationUnit">Unidad de Variación</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="frec" id="frec">
+                <label class="chckbx" for="frec">Frecuencia</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="limSup" id="limSup">
+                <label class="chckbx" for="limSup">Límite Superior</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="limInf" id="limInf">
+                <label class="chckbx" for="limInf">Límite Inferior</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="marcaClasses" id="marcaClasses">
+                <label class="chckbx" for="marcaClasses">Marca de Clases</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="limInfEx" id="limInfEx">
+                <label class="chckbx" for="limInfEx">Límite Inferior Exacto</label>
+            </div>
+
+            <div class="opt">
+                <input type="checkbox" class="userInformation" name="limSupEx" id="limSupEx">
+                <label class="chckbx" for="limSupEx">Límite Superior Exacto</label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="singleDataGiven" id="singleDataGiven"></div>
+    <div class="groupedDataGiven" id="groupedDataGiven"></div>
+
+    <div class="whatIWhantToKnow" id="wiwtk">
+        <h1 class="segmentTitle">¿Qué quieres saber?</h1>
+    </div>
+</body>
+<script src="../static/scripts/app.js"></script>
+
+</html>
